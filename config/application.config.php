@@ -11,7 +11,10 @@ return array(
         'Simplemodule',
         'Album',
     	'Checklist',
-		'Project'
+		'Project',
+    	'ZendDeveloperTools', 
+    	'ZfcBase',
+        'ZfcUser',
     ),
     'module_listener_options' => array(
         'module_paths' => array(

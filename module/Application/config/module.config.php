@@ -59,8 +59,16 @@ return array(
         ),
         'aliases' => array(
             'translator' => 'MvcTranslator',
-        )
+        ),
+        'factories' => array(
+        		'navigation' => 'Zend\Navigation\Service\DefaultNavigationFactory', 
+        ),
     ),
+    
+    'navigation' => array(
+    		'default' => include('menu.config.php')
+    ),
+    
     'translator' => array(
         'locale' => 'en_US',
         'translation_file_patterns' => array(

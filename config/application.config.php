@@ -15,6 +15,9 @@ return array(
     	'ZendDeveloperTools', 
     	'ZfcBase',
         'ZfcUser',
+    	'ZfcAdmin',
+    	'ZfcUserAdmin',
+    	'BjyAuthorize'
     ),
     'module_listener_options' => array(
         'module_paths' => array(

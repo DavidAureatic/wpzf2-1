@@ -29,6 +29,7 @@ else
 $modules=array_merge($modpro,$moddev);
 
 return array(
+    'modules' => $modules,
     'module_listener_options' => array(
         'module_paths' => array(
             './module',

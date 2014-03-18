@@ -1,50 +1,55 @@
 <?php
+//DOCTRINE CONFIG
+namespace Cheetara;
+
+return array(
+		'doctrine' => array(
+				'driver' => array(
+						__NAMESPACE__ . '_driver' => array(
+								'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
+								'cache' => 'array',
+								'paths' => array(__DIR__ . '/../src/' . __NAMESPACE__ . '/Entity')
+						),
+						'orm_default' => array(
+								'drivers' => array(
+										__NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver'
+								)
+							)
+						)
+					)
+				);
+//END DOCTRINE CONFIG
+			
 return array(
     'controllers' => array(
         'invokables' => array(
             'Cheetara\Controller\Index' => 'Cheetara\Controller\IndexController',
         ),
     ),
-    'router' => array(
-        'routes' => array(
-            'cheetara' => array(
-                'type'    => 'Literal',
-                'options' => array(
-                    // Change this to something specific to your module
-                    'route'    => '/index',
-                    'defaults' => array(
-                        // Change this value to reflect the namespace in which
-                        // the controllers for your module are found
-                        '__NAMESPACE__' => 'Cheetara\Controller',
-                        'controller'    => 'Index',
-                        'action'        => 'index',
-                    ),
-                ),
-                'may_terminate' => true,
-                'child_routes' => array(
-                    // This route is a sane default when developing a module;
-                    // as you solidify the routes for your module, however,
-                    // you may want to remove it and replace it with more
-                    // specific routes.
-                    'default' => array(
-                        'type'    => 'Segment',
-                        'options' => array(
-                            'route'    => '/[:controller[/:action]]',
-                            'constraints' => array(
-                                'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                                'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
-                            ),
-                            'defaults' => array(
-                            ),
-                        ),
-                    ),
-                ),
-            ),
-        ),
-    ),
+       'router' => array(
+	    'routes' => array(
+	        'task' => array(
+	            'type'    => 'Segment',
+	            'options' => array(
+	                'route'    => '/cheetara[/:action[/:id]]',
+	                'defaults' => array(
+	                    '__NAMESPACE__' => 'Cheetara\Controller',
+	                    'controller'    => 'index',
+	                    'action'        => 'index',
+	                ),
+	                'constraints' => array(
+	                    'action' => 'add|edit|delete',
+	                    'id'     => '[0-9]+',
+	                ),
+	            ),
+	        ),
+	    ),
+	),
     'view_manager' => array(
         'template_path_stack' => array(
             'Cheetara' => __DIR__ . '/../view',
         ),
     ),
 );
+
+

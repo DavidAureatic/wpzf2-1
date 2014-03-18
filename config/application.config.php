@@ -17,9 +17,10 @@ if ($env == 'development')
 	// Modules Debug
 	$moddev =array(
 			'ZendDeveloperTools',
+			'DoctrineModule',
+			'DoctrineORMModule',
 			'Album',
 			'Simplemodule',
-			'Debug',
 			'Checklist',
 			'Cheetara',
 	);
